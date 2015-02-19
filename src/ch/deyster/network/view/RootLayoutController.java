@@ -13,6 +13,24 @@ public class RootLayoutController
 	}
 	
 	@FXML
+	public void handleJoin()
+	{
+		main.showJoinDialog();
+	}
+	
+	@FXML
+	public void handleLeave()
+	{
+		
+	}
+	
+	@FXML
+	public void handleUpdateStatus()
+	{
+		
+	}
+	
+	@FXML
 	public void handleClose()
 	{
 		System.exit(0);

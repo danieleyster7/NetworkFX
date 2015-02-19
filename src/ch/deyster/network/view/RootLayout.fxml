@@ -11,6 +11,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleJoin" text="Join" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleUpdateStatus" text="Change Status" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleLeave" text="Leave" />
               <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Close" />
             </items>
           </Menu>
