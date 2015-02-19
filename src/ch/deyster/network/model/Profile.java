@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class Profile 
@@ -13,6 +15,7 @@ public class Profile
 	private String status;
 	private StringProperty statusProperty;
 	private ArrayList<String> friends;
+	private ObservableList<StringProperty> friendsProperty = FXCollections.observableArrayList();
 	
 	public Profile()
 	{
@@ -42,7 +45,7 @@ public class Profile
 	
 	public StringProperty nameProperty()
 	{
-		return nameProperty();
+		return nameProperty;
 	}
 	
 	
@@ -65,10 +68,17 @@ public class Profile
 	public void addFriend(String friend)
 	{
 		friends.add(friend);
+		friendsProperty.add(new SimpleStringProperty(friend));
 	}
 	
 	public void removeFriend(String friend)
 	{
 		friends.remove(friend);
+		friendsProperty.remove(new SimpleStringProperty(friend));
+	}
+	
+	public ObservableList<StringProperty> friendsProperty()
+	{
+		return friendsProperty;
 	}
 }

@@ -2,25 +2,28 @@ package ch.deyster.network.model;
 
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 
 public class Network
 {
-	ArrayList<Profile> profiles;
+	private ObservableList<Profile> profilesProperty = FXCollections.observableArrayList();
 	
-	public Network()
-	{
-		profiles = new ArrayList<Profile>();
-	}
+	public Network(){}
 	
 	public void joinNetwork(Profile profile)
 	{
-		profiles.add(profile);
+		profilesProperty.add(profile);
 	}
 	
 	public void leaveNetwork(Profile profile)
 	{
-		profiles.remove(profile);
+		profilesProperty.remove(profile);
+	}
+	
+	public ObservableList<Profile> getProfiles()
+	{
+		return profilesProperty;
 	}
 }

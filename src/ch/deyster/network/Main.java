@@ -22,8 +22,7 @@ public class Main extends Application
 {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-	private Network network;
-	private ObservableList<Profile> data = FXCollections.observableArrayList();
+	private Network network = new Network();;
 	
 	public void start(Stage primaryStage) 
 	{
@@ -101,16 +100,33 @@ public class Main extends Application
 	}
 	public ObservableList<Profile> getData()
 	{
-		return data;
+		return network.getProfiles();
 	}
 	
-	public Main() {
-		
-	}
 	
-	private void updateData()
+	//Make some dummy profiles in the Network
+	public Main() 
 	{
-
+		//Make 3 dummy profiles
+		Profile one = new Profile("Bob Boberson");
+		one.setStatus("I am Bob");
+		
+		Profile two = new Profile("Steve Steveroni");
+		two.setStatus("I am not Bob");
+		
+		Profile three = new Profile("George G-Dawg");
+		three.setStatus("Straight up Gangsta");
+		
+		//Add friends
+		one.addFriend(two.getName());
+		one.addFriend(three.getName());
+		two.addFriend(three.getName());
+		three.addFriend(one.getName());
+		
+		//Add profiles to network
+		network.joinNetwork(one);
+		network.joinNetwork(two);
+		network.joinNetwork(three);
 	}
 
 	public static void main(String[] args) 
